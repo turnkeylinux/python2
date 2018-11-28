@@ -1,10 +1,11 @@
 python2.7 (2.7.15-5) UNRELEASED; urgency=medium
 
-  * Update to 20180926 from the 2.7 branch.
+  * Update to 20181127 from the 2.7 branch.
     - Fix issue #20744, running an external 'zip' in shutil.make_archive().
       CVE-2018-1000802. Closes: #909673.
+  * Update VCS attributes.
 
- -- Matthias Klose <doko@debian.org>  Thu, 27 Sep 2018 15:41:24 +0200
+ -- Matthias Klose <doko@debian.org>  Wed, 28 Nov 2018 16:55:12 +0100
 
 python2.7 (2.7.15-4) unstable; urgency=medium
 

@@ -1,7 +1,5 @@
 # DP: Let ensurepip use the system wheels, not the ones from the python source.
 
-Index: b/Lib/ensurepip/__init__.py
-===================================================================
 --- a/Lib/ensurepip/__init__.py
 +++ b/Lib/ensurepip/__init__.py
 @@ -1,6 +1,7 @@
@@ -16,9 +14,9 @@ Index: b/Lib/ensurepip/__init__.py
  __all__ = ["version", "bootstrap"]
  
  
--_SETUPTOOLS_VERSION = "39.0.1"
+-_SETUPTOOLS_VERSION = "40.6.2"
 -
--_PIP_VERSION = "10.0.1"
+-_PIP_VERSION = "18.1"
 -
  _PROJECTS = [
 -    ("setuptools", _SETUPTOOLS_VERSION),
