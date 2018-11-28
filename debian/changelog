@@ -1,4 +1,4 @@
-python2.7 (2.7.15-5) UNRELEASED; urgency=medium
+python2.7 (2.7.15-5) unstable; urgency=medium
 
   * Update to 20181127 from the 2.7 branch.
     - Fix issue #20744, running an external 'zip' in shutil.make_archive().
@@ -6,9 +6,10 @@ python2.7 (2.7.15-5) UNRELEASED; urgency=medium
   * Cherrypick in-progress backports to 2.7 branch from 3.6 branch to fix
     test_ssl assertions with openssl 1.1.1. Resolves autopkgtest failure
     of the 2.7 with openssl 1.1.1 (Dimitri John Ledkov).
+  * Don't hard code location of netinet/in.h. Closes: #912422.
   * Update VCS attributes.
 
- -- Matthias Klose <doko@debian.org>  Wed, 28 Nov 2018 16:55:12 +0100
+ -- Matthias Klose <doko@debian.org>  Wed, 28 Nov 2018 17:27:22 +0100
 
 python2.7 (2.7.15-4) unstable; urgency=medium
 

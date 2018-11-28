@@ -4,6 +4,7 @@ config.guess.dh-orig
 config.sub.dh-orig
 configure
 stamps
+build
 build-*
 
 Demo

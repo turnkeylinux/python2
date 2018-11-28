@@ -1,8 +1,6 @@
 # DP: Comment out constant exposed on the API which are not implemented on
 # DP: GNU/Hurd. They would not work at runtime anyway.
 
-Index: b/Modules/posixmodule.c
-===================================================================
 --- a/Modules/posixmodule.c
 +++ b/Modules/posixmodule.c
 @@ -9320,12 +9320,14 @@ all_ins(PyObject *d)
@@ -20,11 +18,9 @@ Index: b/Modules/posixmodule.c
  
  /* MS Windows */
  #ifdef O_NOINHERIT
-Index: b/Modules/socketmodule.c
-===================================================================
 --- a/Modules/socketmodule.c
 +++ b/Modules/socketmodule.c
-@@ -4933,9 +4933,11 @@ init_socket(void)
+@@ -4935,9 +4935,11 @@ init_socket(void)
  #ifdef  SO_OOBINLINE
      PyModule_AddIntConstant(m, "SO_OOBINLINE", SO_OOBINLINE);
  #endif
