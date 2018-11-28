@@ -812,8 +812,10 @@ endif
 
 	mv $(d)/usr/lib/libpython*.a $(d)/usr/lib/$(DEB_HOST_MULTIARCH)/
 
-	mv $(d)/usr/lib/python$(VER)/site-packages \
-		$(d)/usr/lib/python$(VER)/dist-packages
+	if [ -d $(d)/usr/lib/python$(VER)/site-packages ]; then \
+	  mv $(d)/usr/lib/python$(VER)/site-packages \
+	    $(d)/usr/lib/python$(VER)/dist-packages; \
+	fi
 
 	: # remove files, which are not packaged
 	rm -f $(d)/usr/bin/smtpd.py

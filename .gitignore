@@ -33,8 +33,28 @@ install-sh
 pyconfig.h.in
 setup.py
 
+debian/.debhelper
 debian/*.debhelper.log
+debian/*.substvars
 debian/files
+
+debian/idle-python2.7
+debian/libpython2.7-dbg
+debian/libpython2.7-dev
+debian/libpython2.7-minimal
+debian/libpython2.7-stdlib
+debian/libpython2.7-testsuite
+debian/libpython2.7
+debian/python2.7-dbg
+debian/python2.7-dev
+debian/python2.7-doc
+debian/python2.7-examples
+debian/python2.7-minimal
+debian/python2.7
+debian/test_results
+debian/tmp-dbg
+debian/tmp-shdbg
+debian/tmp
 
 debian/README.Debian
 debian/README.idle-python2.7
