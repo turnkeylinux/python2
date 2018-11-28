@@ -33,6 +33,8 @@ pyconfig.h.in
 setup.py
 
 debian/*.debhelper.log
+debian/files
+
 debian/README.Debian
 debian/README.idle-python2.7
 debian/README.maintainers
