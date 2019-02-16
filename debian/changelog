@@ -1,3 +1,36 @@
+python2.7 (2.7.15-9) unstable; urgency=medium
+
+  * Update to 20190216 from the 2.7 branch.
+    - Backport of TLS 1.3 related fixes from 3.7.
+  * Drop the local TLS 1.3 backports.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 16 Feb 2019 11:39:20 +0100
+
+python2.7 (2.7.15-8) unstable; urgency=medium
+
+  * Fix typo in autopkg test.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 03 Feb 2019 14:13:16 +0100
+
+python2.7 (2.7.15-7) unstable; urgency=medium
+
+  * Expect the test_site test failing as in 3.7.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 03 Feb 2019 12:51:14 +0100
+
+python2.7 (2.7.15-6) unstable; urgency=medium
+
+  * Update to 20190201 from the 2.7 branch.
+    - CVE-2013-1752: Limit imaplib.IMAP4_SSL.readline().
+    - CVE-2018-14647: _elementtree.c doesn't call XML_SetHashSalt().
+      Closes: #921039.
+    - CVE-2019-5010: DsO vulnerability exists in the X509 certificate parser.
+      Closes: #921040.
+  * Bump standards version.
+  * Update symbols file.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 01 Feb 2019 08:18:31 +0100
+
 python2.7 (2.7.15-5) unstable; urgency=medium
 
   * Update to 20181127 from the 2.7 branch.

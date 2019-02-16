@@ -70,8 +70,4 @@ issue27239.diff
 rename-md5-init.diff
 local-doc-references.diff
 m-i-p-s-r6.diff
-bpo-33570.diff
-bpo-34818.diff
-bpo-34834.diff
-bpo-34836.diff
 multiarch-libc.diff

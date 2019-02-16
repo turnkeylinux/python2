@@ -67,6 +67,9 @@ case "$vendor" in Debian)
   TESTEXCLUSIONS="$TESTEXCLUSIONS test_ftplib test_ssl"
 esac
 
+# test_site: site-/dist-packages mismatches
+TESTEXCLUSIONS="$TESTEXCLUSIONS test_site"
+
 # TODO: test_ctypes fails on arm64 on the debug build
 echo "uname: $(uname -a)"
 case "$(uname -m)" in armv8*|aarch64*)

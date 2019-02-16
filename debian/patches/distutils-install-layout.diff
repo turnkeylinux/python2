@@ -2,8 +2,6 @@
 # DP: - installs into $prefix/dist-packages instead of $prefix/site-packages.
 # DP: - doesn't encode the python version into the egg name.
 
-Index: b/Doc/install/index.rst
-===================================================================
 --- a/Doc/install/index.rst
 +++ b/Doc/install/index.rst
 @@ -255,6 +255,8 @@ is pure Python or contains extensions ("
@@ -64,8 +62,6 @@ Index: b/Doc/install/index.rst
  The most convenient way is to add a path configuration file to a directory
  that's already on Python's path, usually to the :file:`.../site-packages/`
  directory.  Path configuration files have an extension of :file:`.pth`, and each
-Index: b/Lib/distutils/command/install.py
-===================================================================
 --- a/Lib/distutils/command/install.py
 +++ b/Lib/distutils/command/install.py
 @@ -47,6 +47,20 @@ INSTALL_SCHEMES = {
@@ -150,8 +146,6 @@ Index: b/Lib/distutils/command/install.py
  
      # finalize_unix ()
  
-Index: b/Lib/distutils/command/install_egg_info.py
-===================================================================
 --- a/Lib/distutils/command/install_egg_info.py
 +++ b/Lib/distutils/command/install_egg_info.py
 @@ -14,18 +14,37 @@ class install_egg_info(Command):
@@ -197,8 +191,6 @@ Index: b/Lib/distutils/command/install_egg_info.py
          self.target = os.path.join(self.install_dir, basename)
          self.outputs = [self.target]
  
-Index: b/Lib/distutils/sysconfig.py
-===================================================================
 --- a/Lib/distutils/sysconfig.py
 +++ b/Lib/distutils/sysconfig.py
 @@ -115,6 +115,7 @@ def get_python_lib(plat_specific=0, stan
@@ -218,8 +210,6 @@ Index: b/Lib/distutils/sysconfig.py
          else:
              return os.path.join(libpython, "site-packages")
  
-Index: b/Lib/site.py
-===================================================================
 --- a/Lib/site.py
 +++ b/Lib/site.py
 @@ -273,6 +273,13 @@ def addusersitepackages(known_paths):
@@ -236,8 +226,6 @@ Index: b/Lib/site.py
      return known_paths
  
  def getsitepackages():
-Index: b/Lib/sysconfig.py
-===================================================================
 --- a/Lib/sysconfig.py
 +++ b/Lib/sysconfig.py
 @@ -16,6 +16,26 @@ _INSTALL_SCHEMES = {
@@ -308,8 +296,6 @@ Index: b/Lib/sysconfig.py
      return os.path.join(inc_dir, 'pyconfig.h')
  
  def get_scheme_names():
-Index: b/Lib/test/test_import.py
-===================================================================
 --- a/Lib/test/test_import.py
 +++ b/Lib/test/test_import.py
 @@ -301,7 +301,7 @@ class ImportTests(unittest.TestCase):
@@ -321,11 +307,9 @@ Index: b/Lib/test/test_import.py
  
      def test_import_by_filename(self):
          path = os.path.abspath(TESTFN)
-Index: b/Lib/test/test_site.py
-===================================================================
 --- a/Lib/test/test_site.py
 +++ b/Lib/test/test_site.py
-@@ -253,10 +253,13 @@ class HelperFunctionsTests(unittest.Test
+@@ -255,10 +255,13 @@ class HelperFunctionsTests(unittest.Test
          elif os.sep == '/':
              # OS X, Linux, FreeBSD, etc
              self.assertEqual(len(dirs), 2)
@@ -342,8 +326,6 @@ Index: b/Lib/test/test_site.py
              self.assertEqual(dirs[1], wanted)
          else:
              # other platforms
-Index: b/Lib/test/test_sysconfig.py
-===================================================================
 --- a/Lib/test/test_sysconfig.py
 +++ b/Lib/test/test_sysconfig.py
 @@ -239,8 +239,8 @@ class TestSysConfig(unittest.TestCase):
@@ -357,8 +339,6 @@ Index: b/Lib/test/test_sysconfig.py
          self.assertEqual(get_scheme_names(), wanted)
  
      @unittest.skipIf(sys.platform.startswith('win'),
-Index: b/Lib/distutils/tests/test_install.py
-===================================================================
 --- a/Lib/distutils/tests/test_install.py
 +++ b/Lib/distutils/tests/test_install.py
 @@ -194,7 +194,7 @@ class InstallTestCase(support.TempdirMan
@@ -379,21 +359,17 @@ Index: b/Lib/distutils/tests/test_install.py
          self.assertEqual(found, expected)
  
      def test_debug_mode(self):
-Index: b/Lib/distutils/tests/test_bdist_dumb.py
-===================================================================
 --- a/Lib/distutils/tests/test_bdist_dumb.py
 +++ b/Lib/distutils/tests/test_bdist_dumb.py
 @@ -87,7 +87,7 @@ class BuildDumbTestCase(support.TempdirM
              fp.close()
  
-         contents = sorted(os.path.basename(fn) for fn in contents)
+         contents = sorted(filter(None, map(os.path.basename, contents)))
 -        wanted = ['foo-0.1-py%s.%s.egg-info' % sys.version_info[:2], 'foo.py']
 +        wanted = ['foo-0.1.egg-info', 'foo.py']
          if not sys.dont_write_bytecode:
              wanted.append('foo.pyc')
          self.assertEqual(contents, sorted(wanted))
-Index: b/Lib/pydoc.py
-===================================================================
 --- a/Lib/pydoc.py
 +++ b/Lib/pydoc.py
 @@ -392,6 +392,7 @@ class Doc:

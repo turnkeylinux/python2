@@ -1256,6 +1256,7 @@
  (optional)_Py_expm1@Base @VER@
  _Py_findlabel@Base @VER@
  (arch=i386 lpia m68k)_Py_force_double@Base @VER@
+ _Py_freegrammar@Base @VER@
  (arch=amd64 i386 lpia)_Py_get_387controlword@Base @VER@
  _Py_gitidentifier@Base 2.7.1
  _Py_gitversion@Base 2.7.1
