@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.17.11),
   quilt, autoconf, autotools-dev,
   lsb-release, sharutils,
   libreadline-dev, libtinfo-dev, libncursesw5-dev (>= 5.3),
-  tk-dev, blt-dev (>= 2.4z), libssl-dev,
+  tk-dev, blt-dev (>= 2.4z), libssl-dev (>= 1.1.1),
   zlib1g-dev, libbz2-dev,
   libexpat1-dev,
   libbluetooth-dev [linux-any] <!profile.nobluetooth>,
@@ -44,7 +44,7 @@ Package: libpython2.7-stdlib
 Architecture: any
 Multi-Arch: same
 Priority: optional
-Depends: libpython2.7-minimal (= ${binary:Version}), mime-support, ${shlibs:Depends}, ${misc:Depends}
+Depends: libpython2.7-minimal (= ${binary:Version}), libssl1.1 (>= 1.1.1), mime-support, ${shlibs:Depends}, ${misc:Depends}
 Provides: python2.7-cjkcodecs, python2.7-ctypes, python2.7-elementtree, python2.7-celementtree, python2.7-wsgiref, python2.7-profiler, python2.7-argparse, python-argparse
 Replaces: python2.7 (<< 2.7.5-0~), libpython2.7-testsuite (<< 2.7.13-4)
 Breaks: python-urllib3 (<< 1.9.1-3), ${pyfpe:Breaks}
