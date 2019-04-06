@@ -1,15 +1,17 @@
-python2.7 (2.7.16-2) UNRELEASED; urgency=high
+python2.7 (2.7.16-2) unstable; urgency=high
 
   [ Matthias Klose ]
   * CVE-2019-9636. Fix issue #36216: Add check for characters in netloc that
     normalize to separators. Closes: #924073.
+  * CVE-2019-9948. Fix issue #35907: Stop urllib exposing the local_file schema
+    (file://).
 
   [ Dimitri John Ledkov ]
   * Bump Build-Depedency and Dependency of libssl-dev and libss1.1 to
     1.1.1 or higher. As TLS1.3 constants leak into ssl module, thus one
     shouldn't mix and match python2.7 & libssl1.1. LP: #1808476
 
- -- Matthias Klose <doko@debian.org>  Sat, 09 Mar 2019 19:44:25 +0100
+ -- Matthias Klose <doko@debian.org>  Sat, 06 Apr 2019 03:42:57 +0200
 
 python2.7 (2.7.16-1) unstable; urgency=medium
 
