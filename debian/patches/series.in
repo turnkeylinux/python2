@@ -1,4 +1,4 @@
-# git-updates.diff
+git-updates.diff
 issue9189.diff
 build-libpython.diff
 deb-setup.diff
@@ -71,5 +71,3 @@ rename-md5-init.diff
 local-doc-references.diff
 m-i-p-s-r6.diff
 multiarch-libc.diff
-issue36216.diff
-issue35907.diff
