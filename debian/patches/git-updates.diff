@@ -1,6 +1,6 @@
-# DP: git updates of the 2.7 release branch (until 2019-07-08).
+# DP: git updates of the 2.7 release branch (until 2019-09-04).
 
-# git diff 413a49145e35c7a2d3a7de27c5a1828449c9b2e5 00bf4d64ecb01027be40c32d822e47e55d6b5c76 | filterdiff -x ?/.hgignore -x ?/.hgeol -x ?/.hgtags -x ?/.hgtouch -x ?/.gitignore -x ?/.gitattributes -x '?/.github/*' -x '?/.git*' -x ?/.codecov.yml -x ?/.travis.yml -x ?/configure --remove-timestamps
+# git diff 413a49145e35c7a2d3a7de27c5a1828449c9b2e5 0229b56d8c0cb65b8ad789e69dcd281fd92a6d96 | filterdiff -x ?/.hgignore -x ?/.hgeol -x ?/.hgtags -x ?/.hgtouch -x ?/.gitignore -x ?/.gitattributes -x '?/.github/*' -x '?/.git*' -x ?/.codecov.yml -x ?/.travis.yml -x ?/configure --remove-timestamps
 
 diff --git a/Doc/c-api/exceptions.rst b/Doc/c-api/exceptions.rst
 index db302d8ee0..281e4c8473 100644
@@ -469,6 +469,37 @@ index 082fc01299..81c0495013 100644
  
  Perhaps the most important metacharacter is the backslash, ``\``.   As in Python
  string literals, the backslash can be followed by various characters to signal
+diff --git a/Doc/library/_winreg.rst b/Doc/library/_winreg.rst
+index a87cb9c51d..177e1994f3 100644
+--- a/Doc/library/_winreg.rst
++++ b/Doc/library/_winreg.rst
+@@ -427,7 +427,7 @@ This module offers the following functions:
+    *key* is an already open key, or one of the predefined
+    :ref:`HKEY_* constants <hkey-constants>`.
+ 
+-   Will generally raise :exc:`NotImplemented` if executed on a 32-bit
++   Will generally raise :exc:`NotImplementedError` if executed on a 32-bit
+    operating system.
+ 
+    If the key is not on the reflection list, the function succeeds but has no
+@@ -442,7 +442,7 @@ This module offers the following functions:
+    *key* is an already open key, or one of the predefined
+    :ref:`HKEY_* constants <hkey-constants>`.
+ 
+-   Will generally raise :exc:`NotImplemented` if executed on a 32-bit
++   Will generally raise :exc:`NotImplementedError` if executed on a 32-bit
+    operating system.
+ 
+    Restoring reflection for a key does not affect reflection of any subkeys.
+@@ -457,7 +457,7 @@ This module offers the following functions:
+ 
+    Returns ``True`` if reflection is disabled.
+ 
+-   Will generally raise :exc:`NotImplemented` if executed on a 32-bit
++   Will generally raise :exc:`NotImplementedError` if executed on a 32-bit
+    operating system.
+ 
+ 
 diff --git a/Doc/library/colorsys.rst b/Doc/library/colorsys.rst
 index f1447e83b0..32eac8e3ee 100644
 --- a/Doc/library/colorsys.rst
@@ -566,6 +597,50 @@ index 4386e603ad..8701f9d8ff 100644
  
     .. versionadded:: 2.2
  
+diff --git a/Doc/library/io.rst b/Doc/library/io.rst
+index dcdd01cd0a..7c053f973a 100644
+--- a/Doc/library/io.rst
++++ b/Doc/library/io.rst
+@@ -304,7 +304,7 @@ I/O Base Classes
+       Note that it's already possible to iterate on file objects using ``for
+       line in file: ...`` without calling ``file.readlines()``.
+ 
+-   .. method:: seek(offset[, whence])
++   .. method:: seek(offset, whence=SEEK_SET)
+ 
+       Change the stream position to the given byte *offset*.  *offset* is
+       interpreted relative to the position indicated by *whence*.  The default
+@@ -736,7 +736,7 @@ Text I/O
+ 
+       If *limit* is specified, at most *limit* characters will be read.
+ 
+-   .. method:: seek(offset[, whence])
++   .. method:: seek(offset, whence=SEEK_SET)
+ 
+       Change the stream position to the given *offset*.  Behaviour depends on
+       the *whence* parameter.  The default value for *whence* is
+diff --git a/Doc/library/select.rst b/Doc/library/select.rst
+index 7a080457a0..b68b32486a 100644
+--- a/Doc/library/select.rst
++++ b/Doc/library/select.rst
+@@ -291,13 +291,14 @@ Kqueue Objects
+    Create a kqueue object from a given file descriptor.
+ 
+ 
+-.. method:: kqueue.control(changelist, max_events[, timeout=None]) -> eventlist
++.. method:: kqueue.control(changelist, max_events[, timeout]) -> eventlist
+ 
+    Low level interface to kevent
+ 
+-   - changelist must be an iterable of kevent object or ``None``
++   - changelist must be an iterable of kevent objects or ``None``
+    - max_events must be 0 or a positive integer
+-   - timeout in seconds (floats possible)
++   - timeout in seconds (floats possible); the default is ``None``,
++     to wait forever
+ 
+ 
+ .. _kevent-objects:
 diff --git a/Doc/library/simplehttpserver.rst b/Doc/library/simplehttpserver.rst
 index df8699e114..1eca9fee2c 100644
 --- a/Doc/library/simplehttpserver.rst
@@ -605,6 +680,19 @@ index 5a7647b7e9..339625ad38 100644
        therefore contains placeholder information.  It is removed in Python
        3.3.
  
+diff --git a/Doc/library/telnetlib.rst b/Doc/library/telnetlib.rst
+index a3019f5fc3..73721f5fe1 100644
+--- a/Doc/library/telnetlib.rst
++++ b/Doc/library/telnetlib.rst
+@@ -29,7 +29,7 @@ Character), EL (Erase Line), GA (Go Ahead), SB (Subnegotiation Begin).
+ .. class:: Telnet([host[, port[, timeout]]])
+ 
+    :class:`Telnet` represents a connection to a Telnet server. The instance is
+-   initially not connected by default; the :meth:`open` method must be used to
++   initially not connected by default; the :meth:`~Telnet.open` method must be used to
+    establish a connection.  Alternatively, the host name and optional port
+    number can be passed to the constructor, to, in which case the connection to
+    the server will be established before the constructor returns.  The optional
 diff --git a/Doc/library/test.rst b/Doc/library/test.rst
 index eef5d16c24..9d78c90f55 100644
 --- a/Doc/library/test.rst
@@ -953,6 +1041,21 @@ index 1da5a25f25..ec5663a500 100644
          func = self.func
          ctypes.set_conversion_mode("ascii", "strict")
          self.assertEqual(func("abc"), "abc")
+diff --git a/Lib/distutils/ccompiler.py b/Lib/distutils/ccompiler.py
+index 88a910c681..3a7b5b84e1 100644
+--- a/Lib/distutils/ccompiler.py
++++ b/Lib/distutils/ccompiler.py
+@@ -748,8 +748,9 @@ class CCompiler:
+             for incl in includes:
+                 f.write("""#include "%s"\n""" % incl)
+             f.write("""\
+-main (int argc, char **argv) {
++int main (int argc, char **argv) {
+     %s();
++    return 0;
+ }
+ """ % funcname)
+         finally:
 diff --git a/Lib/distutils/command/build.py b/Lib/distutils/command/build.py
 index f84bf359dc..2360091a23 100644
 --- a/Lib/distutils/command/build.py
@@ -1400,6 +1503,35 @@ index 3d5683cc4f..47cd7aff0e 100644
 -
  if __name__ == "__main__":
      run_unittest(*tests_gui)
+diff --git a/Lib/lib2to3/refactor.py b/Lib/lib2to3/refactor.py
+index 98386c5f31..8a40deb8ac 100644
+--- a/Lib/lib2to3/refactor.py
++++ b/Lib/lib2to3/refactor.py
+@@ -15,6 +15,7 @@ __author__ = "Guido van Rossum <guido@python.org>"
+ 
+ # Python imports
+ import os
++import pkgutil
+ import sys
+ import logging
+ import operator
+@@ -33,13 +34,12 @@ from . import btm_matcher as bm
+ def get_all_fix_names(fixer_pkg, remove_prefix=True):
+     """Return a sorted list of all available fix names in the given package."""
+     pkg = __import__(fixer_pkg, [], [], ["*"])
+-    fixer_dir = os.path.dirname(pkg.__file__)
+     fix_names = []
+-    for name in sorted(os.listdir(fixer_dir)):
+-        if name.startswith("fix_") and name.endswith(".py"):
++    for finder, name, ispkg in pkgutil.iter_modules(pkg.__path__):
++        if name.startswith("fix_"):
+             if remove_prefix:
+                 name = name[4:]
+-            fix_names.append(name[:-3])
++            fix_names.append(name)
+     return fix_names
+ 
+ 
 diff --git a/Lib/msilib/__init__.py b/Lib/msilib/__init__.py
 index 0352b60c0b..9520dfc021 100644
 --- a/Lib/msilib/__init__.py
@@ -2124,6 +2256,26 @@ index 5d5b0c48fe..a6a455dd75 100644
 +
  if __name__ == '__main__':
      test_main()
+diff --git a/Lib/test/test_multiprocessing.py b/Lib/test/test_multiprocessing.py
+index ff299feed8..c82ccfa7f0 100644
+--- a/Lib/test/test_multiprocessing.py
++++ b/Lib/test/test_multiprocessing.py
+@@ -1809,6 +1809,7 @@ class _TestConnection(BaseTestCase):
+         p = self.Process(target=self._writefd, args=(child_conn, b"foo"))
+         p.daemon = True
+         p.start()
++        self.addCleanup(support.unlink, support.TESTFN)
+         with open(support.TESTFN, "wb") as f:
+             fd = f.fileno()
+             if msvcrt:
+@@ -1834,6 +1835,7 @@ class _TestConnection(BaseTestCase):
+         p = self.Process(target=self._writefd, args=(child_conn, b"bar", True))
+         p.daemon = True
+         p.start()
++        self.addCleanup(support.unlink, support.TESTFN)
+         with open(support.TESTFN, "wb") as f:
+             fd = f.fileno()
+             for newfd in range(256, MAXFD):
 diff --git a/Lib/test/test_os.py b/Lib/test/test_os.py
 index 84e20e0c01..dcd486e2b1 100644
 --- a/Lib/test/test_os.py
@@ -2239,6 +2391,18 @@ index 0eecc781d9..ef2e59c1d1 100644
          def test_protocol_tlsv1_1(self):
              """Connecting to a TLSv1.1 server with various client options.
                 Testing against older TLS versions."""
+diff --git a/Lib/test/test_timeout.py b/Lib/test/test_timeout.py
+index bb9252d1a4..51690335b7 100644
+--- a/Lib/test/test_timeout.py
++++ b/Lib/test/test_timeout.py
+@@ -106,6 +106,7 @@ class TimeoutTestCase(unittest.TestCase):
+     def tearDown(self):
+         self.sock.close()
+ 
++    @unittest.skipIf(True, 'need to replace these hosts; see bpo-35518')
+     def testConnectTimeout(self):
+         # Choose a private address that is unlikely to exist to prevent
+         # failures due to the connect succeeding before the timeout.
 diff --git a/Lib/test/test_tools.py b/Lib/test/test_tools.py
 index 51e4fd61c7..39116b3a79 100644
 --- a/Lib/test/test_tools.py
@@ -3170,6 +3334,19 @@ index 3a88882f0c..050d37daa4 100644
              rval = PyFloat_FromDouble(d);
          }
      }
+diff --git a/Modules/_multiprocessing/multiprocessing.c b/Modules/_multiprocessing/multiprocessing.c
+index d192a074ba..eecace887e 100644
+--- a/Modules/_multiprocessing/multiprocessing.c
++++ b/Modules/_multiprocessing/multiprocessing.c
+@@ -167,7 +167,7 @@ multiprocessing_recvfd(PyObject *self, PyObject *args)
+     cmsg = CMSG_FIRSTHDR(&msg);
+     cmsg->cmsg_level = SOL_SOCKET;
+     cmsg->cmsg_type = SCM_RIGHTS;
+-    cmsg->cmsg_len = CMSG_LEN(sizeof(int));
++    cmsg->cmsg_len = CMSG_SPACE(sizeof(int));
+     msg.msg_controllen = cmsg->cmsg_len;
+ 
+     Py_BEGIN_ALLOW_THREADS
 diff --git a/Modules/_testcapimodule.c b/Modules/_testcapimodule.c
 index 67488e70e4..af93d00daa 100644
 --- a/Modules/_testcapimodule.c
@@ -3750,9 +3927,32 @@ index 68c4e79e29..3c46d8349c 100644
          return NULL;
      }
 diff --git a/PC/_winreg.c b/PC/_winreg.c
-index f0f8df3310..3b887e0753 100644
+index f0f8df3310..e0fdff2250 100644
 --- a/PC/_winreg.c
 +++ b/PC/_winreg.c
+@@ -322,19 +322,19 @@ PyDoc_STRVAR(SetValueEx_doc,
+ 
+ PyDoc_STRVAR(DisableReflectionKey_doc,
+ "Disables registry reflection for 32-bit processes running on a 64-bit\n"
+-"Operating System.  Will generally raise NotImplemented if executed on\n"
++"Operating System.  Will generally raise NotImplementedError if executed on\n"
+ "a 32-bit Operating System.\n"
+ "If the key is not on the reflection list, the function succeeds but has no effect.\n"
+ "Disabling reflection for a key does not affect reflection of any subkeys.");
+ 
+ PyDoc_STRVAR(EnableReflectionKey_doc,
+ "Restores registry reflection for the specified disabled key.\n"
+-"Will generally raise NotImplemented if executed on a 32-bit Operating System.\n"
++"Will generally raise NotImplementedError if executed on a 32-bit Operating System.\n"
+ "Restoring reflection for a key does not affect reflection of any subkeys.");
+ 
+ PyDoc_STRVAR(QueryReflectionKey_doc,
+ "bool = QueryReflectionKey(hkey) - Determines the reflection state for the specified key.\n"
+-"Will generally raise NotImplemented if executed on a 32-bit Operating System.\n");
++"Will generally raise NotImplementedError if executed on a 32-bit Operating System.\n");
+ 
+ /* PyHKEY docstrings */
+ PyDoc_STRVAR(PyHKEY_doc,
 @@ -727,7 +727,7 @@ fixupMultiSZ(char **str, char *data, int len)
      Q = data + len;
      for (P = data, i = 0; P < Q && *P != '\0'; P++, i++) {

@@ -1,8 +1,6 @@
-Index: b/Makefile.pre.in
-===================================================================
 --- a/Makefile.pre.in
 +++ b/Makefile.pre.in
-@@ -1190,6 +1190,8 @@ python-config: $(srcdir)/Misc/python-con
+@@ -1196,6 +1196,8 @@ python-config: $(srcdir)/Misc/python-con
  	# Substitution happens here, as the completely-expanded BINDIR
  	# is not available in configure
  	sed -e "s,@EXENAME@,$(BINDIR)/python$(VERSION)$(EXE)," < $(srcdir)/Misc/python-config.in >python-config
@@ -11,7 +9,7 @@ Index: b/Makefile.pre.in
  
  # Install the include files
  INCLDIRSTOMAKE=$(INCLUDEDIR) $(CONFINCLUDEDIR) $(INCLUDEPY) $(CONFINCLUDEPY)
-@@ -1249,6 +1251,7 @@ libainstall:	@DEF_MAKE_RULE@ python-conf
+@@ -1255,6 +1257,7 @@ libainstall:	@DEF_MAKE_RULE@ python-conf
  	$(INSTALL_SCRIPT) $(srcdir)/install-sh $(DESTDIR)$(LIBPL)/install-sh
  	$(INSTALL_SCRIPT) python-config $(DESTDIR)$(BINDIR)/python$(VERSION)-config
  	rm python-config
@@ -19,8 +17,6 @@ Index: b/Makefile.pre.in
  	@if [ -s Modules/python.exp -a \
  		"`echo $(MACHDEP) | sed 's/^\(...\).*/\1/'`" = "aix" ]; then \
  		echo; echo "Installing support files for building shared extension modules on AIX:"; \
-Index: b/Misc/python-config.in
-===================================================================
 --- a/Misc/python-config.in
 +++ b/Misc/python-config.in
 @@ -56,3 +56,11 @@ for opt in opt_flags:
@@ -35,8 +31,6 @@ Index: b/Misc/python-config.in
 +
 +    elif opt == '--configdir':
 +        print sysconfig.get_config_var('LIBPL')
-Index: b/Misc/python-config.sh.in
-===================================================================
 --- /dev/null
 +++ b/Misc/python-config.sh.in
 @@ -0,0 +1,103 @@
@@ -143,8 +137,6 @@ Index: b/Misc/python-config.sh.in
 +        ;;
 +esac
 +done
-Index: b/configure.ac
-===================================================================
 --- a/configure.ac
 +++ b/configure.ac
 @@ -915,6 +915,7 @@ fi
@@ -171,7 +163,7 @@ Index: b/configure.ac
  
  if test "$cross_compiling" = yes; then
  	RUNSHARED=
-@@ -4954,7 +4957,7 @@ AC_MSG_RESULT($ENSUREPIP)
+@@ -4959,7 +4962,7 @@ AC_MSG_RESULT($ENSUREPIP)
  AC_SUBST(ENSUREPIP)
  
  # generate output files

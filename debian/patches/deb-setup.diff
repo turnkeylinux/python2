@@ -1,10 +1,8 @@
 # DP: Don't include /usr/local/include and /usr/local/lib as gcc search paths
 
-Index: b/setup.py
-===================================================================
 --- a/setup.py
 +++ b/setup.py
-@@ -454,10 +454,10 @@ class PyBuildExt(build_ext):
+@@ -500,10 +500,10 @@ class PyBuildExt(build_ext):
              os.unlink(tmpfile)
  
      def detect_modules(self):

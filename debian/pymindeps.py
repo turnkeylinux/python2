@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python2.7
 
 # Matthias Klose
 # Modified to only exclude module imports from a given module.

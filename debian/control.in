@@ -14,8 +14,8 @@ Build-Depends: debhelper (>= 9), @bd_dpkgdev@ @bd_gcc@
   libsqlite3-dev, libffi-dev (>= 3.0.5) [!or1k !avr32],
   libgpm2 [linux-any],
   mime-support, netbase, net-tools, bzip2, time,
-  libdb-dev (<< 1:6.0), libgdbm-dev, python@bd_qual@, help2man,
-  xvfb, xauth
+  libdb-dev (<< 1:6.0), libgdbm-dev, help2man,
+  xvfb <!nocheck>, xauth <!nocheck>
 Build-Depends-Indep: python3-sphinx
 Build-Conflicts: tcl8.4-dev, tk8.4-dev,
   @PVER@-xml, python-xml,
