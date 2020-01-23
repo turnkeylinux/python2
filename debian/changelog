@@ -1,3 +1,17 @@
+python2.7 (2.7.17-1) unstable; urgency=medium
+
+  * Python 2.7.17 release.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 20 Oct 2019 01:36:22 +0200
+
+python2.7 (2.7.17~rc1-1) unstable; urgency=medium
+
+  * Python 2.7.17 release candidate 1.
+    - CVE-2019-16056, don't parse domains containing @. Closes: #940901.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 10 Oct 2019 12:26:01 +0200
+
 python2.7 (2.7.16-4) unstable; urgency=medium
 
   * Update to 20190904 from the 2.7 branch.
