@@ -1,8 +1,11 @@
-python2.7 (2.7.17-2) UNRELEASED; urgency=medium
+python2.7 (2.7.18~rc1-1) unstable; urgency=medium
 
+  * Python 2.7.18 release candidate 1.
+    - bpo-38576: Disallow control characters in hostnames in http.client,
+      addressing CVE-2019-18348.
   * Make autopkgtests cross-test-friendly (Steve Langasek).
 
- -- Matthias Klose <doko@debian.org>  Thu, 23 Jan 2020 10:35:06 +0100
+ -- Matthias Klose <doko@debian.org>  Tue, 07 Apr 2020 11:34:05 +0200
 
 python2.7 (2.7.17-1) unstable; urgency=medium
 
