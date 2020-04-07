@@ -30,6 +30,8 @@ ls -la $ADTTMP
 
 debian_dir=$(dirname $(dirname $0))
 
+export OPENSSL_CONF=$debian_dir/openssl.cnf
+
 export LOCPATH=$(pwd)/locales
 sh $debian_dir/locale-gen
 
@@ -72,13 +74,15 @@ case "$(uname -m)" in s390*)
   TESTEXCLUSIONS="$TESTEXCLUSIONS test_regrtest"
 esac
 
-# testsuite not ready for OpenSSL 1.2 ...
-case "$vendor" in Debian)
-  TESTEXCLUSIONS="$TESTEXCLUSIONS test_ftplib test_ssl"
-esac
-
 # test_site: site-/dist-packages mismatches
 TESTEXCLUSIONS="$TESTEXCLUSIONS test_site"
+
+# FIXME: Fails with Ubuntu's autopkg test infrastructure
+if [ "$vendor" = Ubuntu ]; then
+  if [ "$(dpkg --print-architecture)" = arm64 ]; then
+    TESTEXCLUSIONS="$TESTEXCLUSIONS test_io"
+  fi
+fi
 
 if [ "$su_user" = nobody ]; then
   log=/dev/null

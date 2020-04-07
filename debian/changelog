@@ -1,3 +1,15 @@
+python2.7 (2.7.18~rc1-2) UNRELEASED; urgency=medium
+
+  * Ignore some autopkg tests:
+    - test_ssl: Fails with OPENSSL_TLS_SECURITY_LEVEL=2.
+    - tst_io: Fails on Ubuntu's autopkg test infrastructure.
+  * Lower OpenSSL security level from 2 to 1 during testing as test_ssl
+    assumes that.
+  * Add XB-Cnf-Visible-Pkgname header on the python*-minimal package to
+    point command-not-found at the full one. LP: #1867157
+
+ -- Matthias Klose <doko@debian.org>  Tue, 07 Apr 2020 14:05:55 +0200
+
 python2.7 (2.7.18~rc1-1) unstable; urgency=medium
 
   * Python 2.7.18 release candidate 1.

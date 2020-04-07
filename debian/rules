@@ -5,6 +5,8 @@ unexport CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
 
 export SHELL = /bin/bash
 
+export OPENSSL_CONF = $(CURDIR)/debian/openssl.cnf
+
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 

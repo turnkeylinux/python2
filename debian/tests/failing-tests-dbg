@@ -28,6 +28,8 @@ ls -la $ADTTMP
 
 debian_dir=$(dirname $(dirname $0))
 
+export OPENSSL_CONF=$debian_dir/openssl.cnf
+
 export LOCPATH=$(pwd)/locales
 sh $debian_dir/locale-gen
 
@@ -65,11 +67,6 @@ esac
 # test_zipfile: Issue 17753, requires write access to test and email.test
 TESTEXCLUSIONS="$TESTEXCLUSIONS test_zipfile"
 
-# testsuite not ready for OpenSSL 1.2 ...
-case "$vendor" in Debian)
-  TESTEXCLUSIONS="$TESTEXCLUSIONS test_ftplib test_ssl"
-esac
-
 # test_site: site-/dist-packages mismatches
 TESTEXCLUSIONS="$TESTEXCLUSIONS test_site"
 
@@ -78,6 +75,13 @@ echo "uname: $(uname -a)"
 case "$(uname -m)" in armv8*|aarch64*)
   TESTEXCLUSIONS="$TESTEXCLUSIONS test_ctypes"
 esac
+
+# FIXME: Fails with Ubuntu's autopkg test infrastructure
+if [ "$vendor" = Ubuntu ]; then
+  if [ "$(dpkg --print-architecture)" = arm64 ]; then
+    TESTEXCLUSIONS="$TESTEXCLUSIONS test_io"
+  fi
+fi
 
 if [ "$su_user" = nobody ]; then
   log=/dev/null
