@@ -74,3 +74,4 @@ multiarch-libc.diff
 end-of-life.diff
 CVE-2019-20907.diff
 CVE-2020-8492.diff
+CVE-2021-3177.diff
