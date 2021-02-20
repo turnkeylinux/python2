@@ -1,5 +1,9 @@
 python2.7 (2.7.18-2) UNRELEASED; urgency=medium
 
+  * Fix issue #39017: Avoid infinite loop when reading specially crafted TAR
+    files using the tarfile module (CVE-2019-20907).
+  * Backport of 0b297d4ff1c0e4480ad33acae793fbaf4bf015b4, trimmed down to the
+    fix for CVE-2020-8492. Closes: #970099.
   * Fix FTCBFS: Add back a dependency on python2.7:any (Helmut Grohne).
     Closes: #939514.
 

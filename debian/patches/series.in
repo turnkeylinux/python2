@@ -71,3 +71,6 @@ rename-md5-init.diff
 local-doc-references.diff
 m-i-p-s-r6.diff
 multiarch-libc.diff
+end-of-life.diff
+CVE-2019-20907.diff
+CVE-2020-8492.diff
