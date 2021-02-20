@@ -514,6 +514,7 @@ endif
 ifneq (,$(filter $(DEB_HOST_ARCH), ia64))
   TEST_EXCLUDES += test_threading test_subprocess
 endif
+TEST_EXCLUDES += test_ttk_guionly
 # see http://bugs.python.org/issue25698
 TEST_EXCLUDES += test_cpickle
 ifneq (,$(TEST_EXCLUDES))
