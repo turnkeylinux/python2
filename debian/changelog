@@ -1,3 +1,10 @@
+python2.7 (2.7.18-5) unstable; urgency=medium
+
+  * Use the posix_prefix layout when inside a virtualenv (Stefano Rivera).
+    Closes: #983552.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 27 Feb 2021 09:40:44 +0100
+
 python2.7 (2.7.18-4) unstable; urgency=medium
 
   * Update the patch for issue #42938 (Marc Deslauriers). Closes: #983516.
