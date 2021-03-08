@@ -205,6 +205,14 @@ endif
 
 make_build_target = $(if $(with_pgo),profile-opt)
 
+ifeq ($(derivative),Ubuntu)
+  arch_substvars =
+else ifeq ($(derivative),Debian)
+    ifneq (,$(filter $(distrelease), sid bullseye))
+      arch_substvars = '-Vpython27:Breaks=$(shell tr '\n' ' ' < debian/py27-breaks.$(derivative))'
+    endif
+endif
+
 buildd_static	:= $(CURDIR)/build-static
 buildd_shared	:= $(CURDIR)/build-shared
 buildd_debug	:= $(CURDIR)/build-debug

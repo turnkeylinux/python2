@@ -33,7 +33,7 @@ Priority: optional
 Depends: python2.7-minimal (= ${binary:Version}), libpython2.7-stdlib (= ${binary:Version}), mime-support, ${shlibs:Depends}, ${misc:Depends}
 Suggests: python2.7-doc, binutils
 Conflicts: python-profiler (<= 2.7.1-2)
-Breaks: python-virtualenv (<< 1.7.1.2-2~), vim-nox (<< 2:7.3.547-4), vim-gtk (<< 2:7.3.547-4), vim-gnome (<< 2:7.3.547-4), vim-athena (<< 2:7.3.547-4)
+Breaks: python-virtualenv (<< 1.7.1.2-2~), vim-nox (<< 2:7.3.547-4), vim-gtk (<< 2:7.3.547-4), vim-gnome (<< 2:7.3.547-4), vim-athena (<< 2:7.3.547-4), ${python27:Breaks}
 Replaces: python-profiler (<= 2.7.1-2), python2.7-minimal (<< 2.7.3-7~)
 Description: Interactive high-level object-oriented language (version 2.7)
  Python is a high-level, interactive, object-oriented language. Its 2.7 version
@@ -66,6 +66,7 @@ Recommends: python2.7
 Suggests: binfmt-support
 Replaces: python2.7 (<< 2.7.8-7~)
 Conflicts: binfmt-support (<< 1.1.2)
+Breaks: ${python27:Breaks}
 Description: Minimal subset of the Python language (version 2.7)
  This package contains the interpreter and some essential modules.  It can
  be used in the boot process for some basic tasks.
@@ -80,7 +81,7 @@ Priority: optional
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: libpython2.7-stdlib
 Replaces: python2.7 (<< 2.7.4-2), python2.7-minimal (<< 2.7.3-10), libpython2.7-stdlib (<< 2.7.8-7)
-Breaks: python2.7-minimal (<< 2.7.4~rc1-1~)
+Breaks: python2.7-minimal (<< 2.7.4~rc1-1~), ${python27:Breaks}
 Conflicts: binfmt-support (<< 1.1.2)
 Description: Minimal subset of the Python language (version 2.7)
  This package contains some essential modules. It is normally not

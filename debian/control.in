@@ -33,7 +33,7 @@ Priority: @PRIO@
 Depends: @PVER@-minimal (= ${binary:Version}), lib@PVER@-stdlib (= ${binary:Version}), mime-support, ${shlibs:Depends}, ${misc:Depends}
 Suggests: @PVER@-doc, binutils
 Conflicts: python-profiler (<= 2.7.1-2)
-Breaks: python-virtualenv (<< 1.7.1.2-2~), vim-nox (<< 2:7.3.547-4), vim-gtk (<< 2:7.3.547-4), vim-gnome (<< 2:7.3.547-4), vim-athena (<< 2:7.3.547-4)
+Breaks: python-virtualenv (<< 1.7.1.2-2~), vim-nox (<< 2:7.3.547-4), vim-gtk (<< 2:7.3.547-4), vim-gnome (<< 2:7.3.547-4), vim-athena (<< 2:7.3.547-4), ${python27:Breaks}
 Replaces: python-profiler (<= 2.7.1-2), @PVER@-minimal (<< 2.7.3-7~)
 Description: Interactive high-level object-oriented language (version @VER@)
  Python is a high-level, interactive, object-oriented language. Its @VER@ version
@@ -66,6 +66,7 @@ Recommends: @PVER@
 Suggests: binfmt-support
 Replaces: @PVER@ (<< 2.7.8-7~)
 Conflicts: binfmt-support (<< 1.1.2)
+Breaks: ${python27:Breaks}
 Description: Minimal subset of the Python language (version @VER@)
  This package contains the interpreter and some essential modules.  It can
  be used in the boot process for some basic tasks.
@@ -80,7 +81,7 @@ Priority: @MINPRIO@
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: lib@PVER@-stdlib
 Replaces: @PVER@ (<< 2.7.4-2), @PVER@-minimal (<< 2.7.3-10), lib@PVER@-stdlib (<< 2.7.8-7)
-Breaks: @PVER@-minimal (<< 2.7.4~rc1-1~)
+Breaks: @PVER@-minimal (<< 2.7.4~rc1-1~), ${python27:Breaks}
 Conflicts: binfmt-support (<< 1.1.2)
 Description: Minimal subset of the Python language (version @VER@)
  This package contains some essential modules. It is normally not
