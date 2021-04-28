@@ -1,3 +1,13 @@
+python2.7 (2.7.18-7) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * python2.7, libpython2.7-minimal: Add Breaks: python (<< 2.7.18) to ensure
+    removal of the unversioned python packages on upgrades from buster. The
+    previously added (transitive) Breaks are not sufficient in a few upgrade
+    scenarios. Closes: #987661.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 28 Apr 2021 19:39:59 +0200
+
 python2.7 (2.7.18-6) unstable; urgency=medium
 
   * python2.7, libpython2.7-minimal: Add Breaks: python-minimal (<< 2.7.18),
