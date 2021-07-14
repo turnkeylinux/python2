@@ -1,3 +1,26 @@
+python2.7 (2.7.18-8) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * python2.7, libpython2.7-minimal: Add Breaks: python-dev (<< 2.7.18),
+    libpython-dev (<< 2.7.18), python-dbg (<< 2.7.18),
+    libpython-dbg (<< 2.7.18) to remove more unversioned python packages.
+    Add Breaks: libgcj-common (<< 1:7), libvolk1-bin (<< 2),
+    pysycache (<< 3.1-4~), python-catkin-pkg (<< 0.4.14-2~),
+    python-chardet (<< 3.0.4-6~), python-extras (<< 1.0.0-4~),
+    python-fixtures (<< 3.0.0-3~), python-genpy (<< 0.6.9-2~),
+    python-iso8601 (<< 0.1.12-2~), python-linecache2 (<< 1.0.0-4~),
+    python-pbr (<< 5.4.5), python-pyasn1 (<< 0.4.2-4~),
+    python-pygame (<< 1.9.6+dfsg-3~), python-pyicu (<< 2.2-3~),
+    python-rospkg (1.1.10-2~), python-std-msgs (<< 0.5.12-2~),
+    python-testtools (<< 2.3.0-7~), python-traceback2 (<< 1.4.0-6~),
+    python-traitlets (<< 4.3.3-3~), python-urllib3 (<< 1.25.8-2~),
+    python-yaml (<< 5.3.1-2~) to remove some persisting obsolete module
+    packages along the unversioned python packages on upgrades from buster.
+    Closes: #990520.
+  * libpython2.7-stdlib: Breaks: ${python27:Breaks}, too.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 14 Jul 2021 10:11:37 +0200
+
 python2.7 (2.7.18-7) unstable; urgency=medium
 
   [ Andreas Beckmann ]

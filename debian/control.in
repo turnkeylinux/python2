@@ -47,7 +47,7 @@ Priority: @PRIO@
 Depends: lib@PVER@-minimal (= ${binary:Version}), libssl1.1 (>= 1.1.1), mime-support, ${shlibs:Depends}, ${misc:Depends}
 Provides: @PVER@-cjkcodecs, @PVER@-ctypes, @PVER@-elementtree, @PVER@-celementtree, @PVER@-wsgiref, @PVER@-profiler, @PVER@-argparse, python-argparse
 Replaces: @PVER@ (<< 2.7.5-0~), lib@PVER@-testsuite (<< 2.7.13-4)
-Breaks: python-urllib3 (<< 1.9.1-3), ${pyfpe:Breaks}
+Breaks: python-urllib3 (<< 1.9.1-3), ${pyfpe:Breaks}, ${python27:Breaks}
 Description: Interactive high-level object-oriented language (standard library, version @VER@)
  Python is a high-level, interactive, object-oriented language. Its @VER@ version
  includes an extensive class library with lots of goodies for
