@@ -4,6 +4,9 @@ python2.7 (2.7.18-10) unstable; urgency=medium
   * Preliminary OpenSSL 3 support.
   * Support building docs with Sphinx 4.
 
+  [ Matthias Klose ]
+  * Bump standards version.
+
  -- Matthias Klose <doko@debian.org>  Fri, 21 Jan 2022 11:34:27 +0100
 
 python2.7 (2.7.18-9) unstable; urgency=medium

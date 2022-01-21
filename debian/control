@@ -21,7 +21,7 @@ Build-Conflicts: tcl8.4-dev, tk8.4-dev,
   python2.7-xml, python-xml,
   autoconf2.13, python-cxx-dev,
   hardening-wrapper
-Standards-Version: 4.5.0
+Standards-Version: 4.6.0
 Vcs-Browser: https://salsa.debian.org/cpython-team/python2
 Vcs-Git: https://salsa.debian.org/cpython-team/python2.git
 XS-Testsuite: autopkgtest
