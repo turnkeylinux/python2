@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 9), @bd_dpkgdev@ @bd_gcc@
   locales [!armel !avr32 !hppa !ia64 !mipsel],
   libsqlite3-dev, libffi-dev (>= 3.0.5) [!or1k !avr32],
   libgpm2 [linux-any],
-  mime-support, netbase, net-tools, bzip2, time,
+  mime-types | mime-support, netbase, net-tools, bzip2, time,
   libdb-dev (<< 1:6.0), libgdbm-dev, help2man,
   xvfb <!nocheck>, xauth <!nocheck>, python2.7:any <cross>
 Build-Depends-Indep: python3-sphinx
@@ -30,7 +30,7 @@ Package: @PVER@
 Architecture: any
 Multi-Arch: allowed
 Priority: @PRIO@
-Depends: @PVER@-minimal (= ${binary:Version}), lib@PVER@-stdlib (= ${binary:Version}), mime-support, ${shlibs:Depends}, ${misc:Depends}
+Depends: @PVER@-minimal (= ${binary:Version}), lib@PVER@-stdlib (= ${binary:Version}), mime-types | mime-support, ${shlibs:Depends}, ${misc:Depends}
 Suggests: @PVER@-doc, binutils
 Conflicts: python-profiler (<= 2.7.1-2)
 Breaks: python-virtualenv (<< 1.7.1.2-2~), vim-nox (<< 2:7.3.547-4), vim-gtk (<< 2:7.3.547-4), vim-gnome (<< 2:7.3.547-4), vim-athena (<< 2:7.3.547-4), ${python27:Breaks}
@@ -44,7 +44,7 @@ Package: lib@PVER@-stdlib
 Architecture: any
 Multi-Arch: same
 Priority: @PRIO@
-Depends: lib@PVER@-minimal (= ${binary:Version}), libssl1.1 (>= 1.1.1), mime-support, ${shlibs:Depends}, ${misc:Depends}
+Depends: lib@PVER@-minimal (= ${binary:Version}), libssl1.1 (>= 1.1.1), mime-types | mime-support, ${shlibs:Depends}, ${misc:Depends}
 Provides: @PVER@-cjkcodecs, @PVER@-ctypes, @PVER@-elementtree, @PVER@-celementtree, @PVER@-wsgiref, @PVER@-profiler, @PVER@-argparse, python-argparse
 Replaces: @PVER@ (<< 2.7.5-0~), lib@PVER@-testsuite (<< 2.7.13-4)
 Breaks: python-urllib3 (<< 1.9.1-3), ${pyfpe:Breaks}, ${python27:Breaks}
