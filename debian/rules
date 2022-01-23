@@ -683,8 +683,8 @@ stamps/stamp-doc-html:
 	@mkdir -p stamps
 	touch stamps/stamp-doc-html
 
-build-doc: stamps/stamp-patch stamps/stamp-build-doc
-stamps/stamp-build-doc: stamps/stamp-doc-html
+build-doc: stamps/stamp-build-doc
+stamps/stamp-build-doc: stamps/stamp-patch stamps/stamp-doc-html
 	touch stamps/stamp-build-doc
 
 control-file:
