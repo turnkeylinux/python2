@@ -1,3 +1,9 @@
+python2.7 (2.7.18-13) unstable; urgency=medium
+
+  * Skip tests requiring TLS 1.2 under OpenSSL 3.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 22 Feb 2022 12:45:08 +0100
+
 python2.7 (2.7.18-12) unstable; urgency=medium
 
   * Apply patches for a binary-indep only build.

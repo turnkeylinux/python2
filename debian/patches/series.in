@@ -82,3 +82,4 @@ openssl3-load-verify-error.diff
 openssl3-version.diff
 openssl3-tests-tlsv1.diff
 sphinx4.diff
+skip-tls1.2-tests.diff
