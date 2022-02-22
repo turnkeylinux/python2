@@ -1,6 +1,7 @@
 python2.7 (2.7.18-13) unstable; urgency=medium
 
   * Skip tests requiring TLS 1.2 under OpenSSL 3.
+  * Test suite adjustments for Expat >=2.4.5.
 
  -- Matthias Klose <doko@debian.org>  Tue, 22 Feb 2022 12:45:08 +0100
 
