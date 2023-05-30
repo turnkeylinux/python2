@@ -997,7 +997,7 @@ endif
 	cp -p Misc/HISTORY Misc/README.valgrind Misc/gdbinit \
 		debian/README.maintainers \
 		$(d_dev)/usr/share/doc/python$(VER)/
-	cp -p	debian/test_results $(buildd_static)/pybench.log \
+	cp -p	$(buildd_static)/pybench.log \
 		$(d_dev)/usr/share/doc/python$(VER)/$(DEB_HOST_MULTIARCH)/
 
 	$(dh_compat2) dh_movefiles -p$(p_dev) --sourcedir=$(d) \
