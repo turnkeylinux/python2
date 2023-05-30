@@ -10,6 +10,9 @@ export OPENSSL_CONF = $(CURDIR)/debian/openssl.cnf
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# skip benchmarking by default
+DEB_BUILD_OPTIONS 	+= nobench
+
 vafilt = $(subst $(2)=,,$(filter $(2)=%,$(1)))
 
 DPKG_VARS		:= $(shell dpkg-architecture)
