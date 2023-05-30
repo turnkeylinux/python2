@@ -103,13 +103,13 @@ Description: Shared Python runtime library (version 2.7)
  This package contains the shared runtime library, normally not needed
  for programs using the statically linked interpreter.
 
-Package: python2.7-examples
-Architecture: all
-Multi-Arch: foreign
-Depends: python2.7:any (>= ${source:Version}), ${misc:Depends}
-Description: Examples for the Python language (v2.7)
- Examples, Demos and Tools for Python (v2.7). These are files included in
- the upstream Python distribution (v2.7).
+#Package: python2.7-examples
+#Architecture: all
+#Multi-Arch: foreign
+#Depends: python2.7:any (>= ${source:Version}), ${misc:Depends}
+#Description: Examples for the Python language (v2.7)
+# Examples, Demos and Tools for Python (v2.7). These are files included in
+# the upstream Python distribution (v2.7).
 
 Package: python2.7-dev
 Architecture: any
@@ -142,48 +142,48 @@ Description: Header files and a static library for Python (v2.7)
  This package contains development files. It is normally not
  used on it's own, but as a dependency of python2.7-dev.
 
-Package: libpython2.7-testsuite
-Section: libdevel
-Architecture: all
-Depends: libpython2.7-stdlib (>= ${binary:Version}), ${misc:Depends}
-Suggests: python-gdbm, python-tk
-Description: Testsuite for the Python standard library (v2.7)
- The complete testsuite for the Python standard library.  Note that
- a subset is found in the libpython2.7-stdlib package, which should
- be enough for other packages to use (please do not build-depend
- on this package, but file a bug report to include additional 
- testsuite files in the libpython2.7-stdlib package).
+#Package: libpython2.7-testsuite
+#Section: libdevel
+#Architecture: all
+#Depends: libpython2.7-stdlib (>= ${binary:Version}), ${misc:Depends}
+#Suggests: python-gdbm, python-tk
+#Description: Testsuite for the Python standard library (v2.7)
+# The complete testsuite for the Python standard library.  Note that
+# a subset is found in the libpython2.7-stdlib package, which should
+# be enough for other packages to use (please do not build-depend
+# on this package, but file a bug report to include additional 
+# testsuite files in the libpython2.7-stdlib package).
 
-Package: idle-python2.7
-Architecture: all
-Depends: python2.7, python-tk (>= 2.6~a3), python2.7-tk, ${misc:Depends}
-Enhances: python2.7
-Replaces: python2.7 (<< 2.6.1-2)
-Description: IDE for Python (v2.7) using Tkinter
- IDLE is an Integrated Development Environment for Python (v2.7).
- IDLE is written using Tkinter and therefore quite platform-independent.
+#Package: idle-python2.7
+#Architecture: all
+#Depends: python2.7, python-tk (>= 2.6~a3), python2.7-tk, ${misc:Depends}
+#Enhances: python2.7
+#Replaces: python2.7 (<< 2.6.1-2)
+#Description: IDE for Python (v2.7) using Tkinter
+# IDLE is an Integrated Development Environment for Python (v2.7).
+# IDLE is written using Tkinter and therefore quite platform-independent.
 
-Package: python2.7-doc
-Section: doc
-Architecture: all
-Multi-Arch: foreign
-Depends: libjs-jquery, libjs-underscore, ${misc:Depends}
-Suggests: python2.7
-Description: Documentation for the high-level object-oriented language Python (v2.7)
- These is the official set of documentation for the interactive high-level
- object-oriented language Python (v2.7). All documents are provided
- in HTML format. The package consists of ten documents:
- .
-   * What's New in Python2.7
-   * Tutorial
-   * Python Library Reference
-   * Macintosh Module Reference
-   * Python Language Reference
-   * Extending and Embedding Python
-   * Python/C API Reference
-   * Installing Python Modules
-   * Documenting Python
-   * Distributing Python Modules
+#Package: python2.7-doc
+#Section: doc
+#Architecture: all
+#Multi-Arch: foreign
+#Depends: libjs-jquery, libjs-underscore, ${misc:Depends}
+#Suggests: python2.7
+#Description: Documentation for the high-level object-oriented language Python (v2.7)
+# These is the official set of documentation for the interactive high-level
+# object-oriented language Python (v2.7). All documents are provided
+# in HTML format. The package consists of ten documents:
+# .
+#   * What's New in Python2.7
+#   * Tutorial
+#   * Python Library Reference
+#   * Macintosh Module Reference
+#   * Python Language Reference
+#   * Extending and Embedding Python
+#   * Python/C API Reference
+#   * Installing Python Modules
+#   * Documenting Python
+#   * Distributing Python Modules
 
 Package: python2.7-dbg
 Section: debug
