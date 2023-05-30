@@ -598,7 +598,7 @@ else
 	  rm -rf $$tmphome
 	@echo "END test shared"
 endif
-	cp -p $(buildd_static)/test_results debian/
+	//cp -p $(buildd_static)/test_results debian/
 	touch stamps/stamp-check
 
 stamps/stamp-pystone:
