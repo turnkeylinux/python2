@@ -184,7 +184,7 @@ ifneq (,$(filter $(DEB_HOST_ARCH), amd64 arm64 armel armhf i386 powerpc ppc64 pp
 endif
 
 ifeq ($(with_lto),yes)
-    LTO_CFLAGS = -g -flto -fuse-linker-plugin
+    LTO_CFLAGS = -g -flto=auto -fuse-linker-plugin
     with_fat_lto := $(shell dpkg --compare-versions $$($(CC) --version \
 			| sed -n '/^$(CC)/s/.* //p') ge 4.9 && echo yes)
     ifeq ($(with_fat_lto),yes)
