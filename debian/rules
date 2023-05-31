@@ -13,6 +13,9 @@ export OPENSSL_CONF = $(CURDIR)/debian/openssl.cnf
 # skip benchmarking by default
 DEB_BUILD_OPTIONS 	+= nobench
 
+# show options
+$(info DEB_BUILD_OPTIONS="$(DEB_BUILD_OPTIONS)")
+
 vafilt = $(subst $(2)=,,$(filter $(2)=%,$(1)))
 
 DPKG_VARS		:= $(shell dpkg-architecture)
