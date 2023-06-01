@@ -12,7 +12,6 @@ import sys, os, time, errno
 if sys.platform in ('os2', 'riscos'):
     raise unittest.SkipTest("Can't test signal on %s" % sys.platform)
 
-raise unittest.SkipTest("Skipping this test because it fails...")
 
 class HandlerBCalled(Exception):
     pass
